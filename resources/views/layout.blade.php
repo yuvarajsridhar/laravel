@@ -37,7 +37,7 @@
         <li><a href="#">Review</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="{{ URL::to('logout') }}"><span class="glyphicon glyphicon-log-in"></span>{{ ucwords(Auth->user()->firstname) }} Logout</a></li>
+        <li><a href="{{ URL::to('logout') }}"><span class="glyphicon glyphicon-log-in"></span>{{ ucwords(Auth::user()->firstname) }} Logout</a></li>
         @else
         <li><a href="{{ URL::to('register') }}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
         <li><a href="{{ URL::to('signin') }}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
