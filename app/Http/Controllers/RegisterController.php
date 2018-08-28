@@ -34,6 +34,7 @@ class RegisterController extends Controller
         return Redirect::to('register')->witherrors($validator);
     }else{
         Register::formstore(Input::except(array('_token','confirmpassword')));
+        return Redirect::to('register')->with('success','Successfully Registered');
     }
     }
 }

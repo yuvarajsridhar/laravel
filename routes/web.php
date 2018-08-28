@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Redirect;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,3 +27,13 @@ Route::get('/register', function () {
 });
 
 Route::post('/register_action','RegisterController@store');
+
+Route::post('/login_action','LoginController@getdata');
+
+
+Route::get('/logout', function () {
+
+    Auth::logout();
+
+    return Redirect::to('');
+})->middleware('auth');

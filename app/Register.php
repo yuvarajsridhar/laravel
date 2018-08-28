@@ -4,7 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Input;
-class Register extends Model
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+
+class Register extends Authenticatable
 {
     protected $table='register_users';
     public static function formstore($data){
@@ -12,13 +16,14 @@ class Register extends Model
         echo $firstname;
         $lastname=Input::get('lastname');
         $email=Input::get('email');
-        $password=Input::get('password');
+        $password=Hash::make(Input::get('password'));
         $users=new Register();
         $users->firstname=$firstname;
         $users->lastname=$lastname;
         $users->email=$email;
         $users->password=$password;
         echo $users->password;
+        $users->save();
 
     }
 }

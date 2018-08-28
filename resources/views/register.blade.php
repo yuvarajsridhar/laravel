@@ -1,6 +1,15 @@
 @extends('layout');
 @section('content')
 <h2>Register</h2>
+@if(Session::has('success'))
+    <div class="row">
+        <div class="col-md-12"></div>
+            <div class='alert alert-success' >
+                {{ Session::get('success') }}
+            </div>
+        </div>
+    </div>
+@endif
   <form class="form-horizontal" action="register_action" method="POST">
         <input type="hidden" name="_token" value="{{csrf_token()}}">
       <div class="form-group">
